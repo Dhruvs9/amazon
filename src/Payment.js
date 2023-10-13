@@ -2,19 +2,19 @@ import React,{ useState, useEffect } from 'react'
 import './Payment.css'
 import { useStateValue } from './StateProvider'
 import CheckoutProduct from './CheckoutProduct'
-import { Link, useHistory } from "react-router-dom"
+import { Link } from "react-router-dom"
 import CurrencyFormat from 'react-currency-format'
-import { loadStripe } from '@stripe/stripe-js'
-import { CardElement,useStripe, useElements } from '@stripe/react-stripe-js'
+// import { loadStripe } from '@stripe/stripe-js'
+import { CardElement } from '@stripe/react-stripe-js'
 import { getBasketTotal } from './reducer'
 import axios from './axios'
 
 function Payment() {
-    const [{basket, user}, dispatch] = useStateValue();
-    const history = useHistory();
+    const [{basket, user}, ] = useStateValue();
+    // const history = useHistory();
 
-    const stripe = useStripe();
-    const elements = useElements();
+    // const stripe = useStripe();
+    // const elements = useElements();
 
     const[succeded, setSucceded] = useState(false);
     const[processing, setProcessing] = useState("");
@@ -22,7 +22,7 @@ function Payment() {
     const [error, setError] = useState(null);
     const [disabled, setDisabled] = useState(true);
 
-    const [clientSecret, setclientSecret] = useState(true);
+    // const [clientSecret, setclientSecret] = useState(true);
 
     useEffect(() => {
         //generate the special stripe secret which allows to charge a customer
@@ -32,7 +32,7 @@ function Payment() {
                 //Stripe expects the total in a currencies subunits
                 url: `/payments/create?total=${getBasketTotal(basket) * 100}`
             });
-            setclientSecret(response.data.clientSecret)
+            // setclientSecret(response.data.clientSecret)
         }
         getClientSecret();
     }, [basket])
@@ -41,18 +41,18 @@ function Payment() {
         event.preventDefault();
         setProcessing(true);
 
-        const payload = await stripe.confirmCardPayment(clientSecret, {
-            payment_method: {
-                card: elements.getElement(CardElement)
-            }
-        }).then(({ paymentIntent }) => {
-            //payment intent = payment confirmation
-            setSucceded(true);
-            setError(null);
-            setProcessing(false);
+        // const payload = await stripe.confirmCardPayment(clientSecret, {
+        //     payment_method: {
+        //         card: elements.getElement(CardElement)
+        //     }
+        // }).then(({ paymentIntent }) => {
+        //     //payment intent = payment confirmation
+        //     setSucceded(true);
+        //     setError(null);
+        //     setProcessing(false);
 
-            history.replaceState('/orders')
-        })
+        //     history.replaceState('/orders')
+        // })
 
         //const payload = await stripe
     }

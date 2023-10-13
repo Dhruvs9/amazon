@@ -1,13 +1,13 @@
 import React from 'react'
 import './Checkout.css'
-import Subtotal from './Subtotal'
+// import Subtotal from './Subtotal'
 import CheckoutProduct from './CheckoutProduct'
 import { useStateValue } from "./StateProvider"
 import Upload from './Upload'
 import Projects from './Projects'
 
 function Checkout() {
-    const [{ basket, user}, dispatch ] = useStateValue();
+    const [{ basket, user} ] = useStateValue();
     
     return (
         <div className="checkout">
