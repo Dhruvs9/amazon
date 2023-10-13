@@ -23,6 +23,20 @@ function Home() {
                 image="https://m.media-amazon.com/images/I/31+rHqWgOrL._AC_UY327_FMwebp_QL65_.jpg"
                 rating={5} 
                 />
+                <Product 
+                id="12321432"
+                title="Apple iPhone 7 4G LTE Prepaid Smartphone - 32GB - Black - Carrier Locked" 
+                price={239} 
+                image="https://m.media-amazon.com/images/I/31+rHqWgOrL._AC_UY327_FMwebp_QL65_.jpg"
+                rating={5} 
+                />
+                <Product 
+                id="12321432"
+                title="Apple iPhone 7 4G LTE Prepaid Smartphone - 32GB - Black - Carrier Locked" 
+                price={239} 
+                image="https://m.media-amazon.com/images/I/31+rHqWgOrL._AC_UY327_FMwebp_QL65_.jpg"
+                rating={5} 
+                />
             </div>
             <div className="home_row">
             <Product 

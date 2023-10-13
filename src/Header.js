@@ -40,7 +40,7 @@ function Header() {
                 <span className='header_optionLineOne'>Your</span>
                 <span className='header_optionLineTwo'>Prime</span>
             </div>
-            <Link to="/checkout">
+            <Link to="/dashboard">
                 <div className="header_optionBasket">
                     <ShoppingBasket  />
                     <span className="header_optionLineTwo header_basketCount">{basket?.length}</span>
